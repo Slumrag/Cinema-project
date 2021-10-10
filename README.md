@@ -1,2 +1,3 @@
 # Cinema-project
-My first webpage
+My online cinema website coding project
+
