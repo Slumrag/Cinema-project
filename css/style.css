@@ -1,8 +1,13 @@
+:root {
+  --color-selected: #fe8e05;
+  --color-bacground: #621402;
+  --color-white-op: rgba(255, 255, 255, 0.5);
+}
 * {
   box-sizing: border-box;
 }
 body {
-  background-color: #621402;
+  background-color: var(--color-bacground);
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   color: #fff;
@@ -10,6 +15,7 @@ body {
 .container {
   max-width: 1170px;
   margin: auto;
+  padding: 0 15px 0 15px;
 }
 .navbar {
   display: flex;
@@ -19,7 +25,11 @@ body {
 }
 .header {
   min-height: 100vh;
-  background: linear-gradient(180deg, rgba(98, 20, 2, 0.31) 0%, #621402 85.62%),
+  background: linear-gradient(
+      180deg,
+      rgba(98, 20, 2, 0.31) 0%,
+      var(--color-bacground) 85.62%
+    ),
     url("../img/bg.png") no-repeat center top / cover;
 }
 .avatar {
@@ -103,8 +113,8 @@ a {
   margin-top: 62px;
   padding-top: 46px;
   padding-bottom: 63px;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid var(--color-white-op);
+  border-bottom: 1px solid var(--color-white-op);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -118,7 +128,7 @@ a {
   flex-direction: column;
   width: 90px;
   height: 90px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--color-white-op);
   border-radius: 5px;
   text-align: center;
   align-items: center;
@@ -146,12 +156,12 @@ a {
   line-height: 22px;
 }
 .session-date-item:hover {
-  background: #fe8e05;
-  color: #621402;
+  background: var(--color-selected);
+  color: var(--color-bacground);
 }
 .selector {
   background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--color-white-op);
   border-radius: 5px;
   color: #fff;
   padding: 18px;
@@ -166,4 +176,95 @@ a {
 .time-selector {
   max-width: 108px;
   min-height: 60px;
+}
+.scheme {
+  background: rgba(36, 36, 36, 0.18);
+  border-radius: 10px;
+  margin-bottom: 40px;
+  margin-top: 63px;
+}
+.scheme path:not(.screen) {
+  fill: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+.scheme path:not(.screen):hover {
+  fill: var(--color-white-op);
+}
+.scheme path.booked,
+.scheme path.booked:hover {
+  fill: rgba(255, 255, 255, 0.05);
+  cursor: not-allowed;
+}
+
+.scheme path.legend-avaluable,
+.scheme path.legend-avaluable:hover {
+  fill: rgba(255, 255, 255, 0.2);
+  cursor: default;
+}
+
+.scheme path.legend-occupied,
+.scheme path.legend-occupied:hover {
+  cursor: default;
+}
+
+.scheme path.legend-chosen,
+.scheme path.legend-chosen:hover {
+  cursor: default;
+}
+.scheme path.active,
+.scheme path.active:hover {
+  fill: var(--color-selected);
+}
+
+.legend-chosen {
+  color: var(--color-selected);
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 35px;
+  border-top: 1px solid var(--color-white-op);
+  min-width: 1024px;
+  margin: auto;
+}
+.legend-label {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  color: var(--color-white-op);
+}
+.legend svg {
+  margin-right: 15px;
+}
+.price {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.price-label {
+  display: block;
+  font-size: 18px;
+  line-height: 21px;
+  margin-bottom: 12px;
+}
+.price-total,
+.ruble {
+  font-size: 52px;
+  line-height: 61px;
+}
+.ruble {
+  margin-left: 10px;
+}
+.button {
+  padding: 24px 52px;
+  font-size: 18px;
+  line-height: 21px;
+  width: 254px;
+  height: 69px;
+  border-radius: 5px;
+  background: var(--color-selected);
 }
