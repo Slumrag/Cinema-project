@@ -28,7 +28,7 @@ nav {
   position: relative;
 }
 .header {
-  padding-bottom: 60px;
+  /* padding-bottom: 60px; */
   background: linear-gradient(
       180deg,
       rgba(98, 20, 2, 0.31) 0%,
@@ -177,11 +177,18 @@ a {
 
 .cinema-selector {
   width: 470px;
-  min-height: 60px;
+  max-height: 60px;
 }
 .time-selector {
   max-width: 108px;
-  min-height: 60px;
+  max-height: 60px;
+}
+option {
+  background-color: var(--color-bacground);
+}
+option::selection {
+  color: var(--color-bacground);
+  background-color: var(--color-selected);
 }
 .scheme {
   background: rgba(36, 36, 36, 0.18);
@@ -237,7 +244,6 @@ a {
   border-top: 1px solid var(--color-white-op);
   max-width: 1024px;
   width: 90%;
-
   margin: auto;
 }
 .legend-label {
@@ -308,14 +314,15 @@ a {
   .session-cinema {
     order: 3;
   }
-  .cinema-selector {
+  .cinema-selector,
+  .time-selector {
     margin: 0;
   }
   .menu-item {
     margin-right: 20px;
   }
 }
-@media (max-width: 770px) {
+@media (max-width: 840px) {
   .container {
     max-width: 560px;
   }
@@ -354,6 +361,7 @@ a {
     height: 40px;
     margin-left: 10px;
     cursor: pointer;
+    border: none;
   }
   .is-open {
     /* display: block !important; */
@@ -361,6 +369,9 @@ a {
     visibility: visible;
     transform: translateX(0);
     transition: opacity 0.5s, transform 0.5s;
+  }
+  .session-time {
+    margin-bottom: 20px;
   }
   .film-description {
     margin-right: 30px;
@@ -372,8 +383,34 @@ a {
     margin: 0 auto 60px auto;
   }
 }
-@media (max-width: 576px) {
-  .time-selector {
-    margin: 0;
+@media (max-width: 520px) {
+  .scheme {
+    overflow-x: scroll;
+  }
+  .legend {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .legend-label {
+    padding-bottom: 10px;
+  }
+  .price {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .button-pay {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .session-date {
+    width: 100%;
+  }
+  .session-date-block {
+    overflow-x: scroll;
+    /* transform: scale(0.8) translate(-50px, 0); */
+  }
+  .session-date-item {
   }
 }
